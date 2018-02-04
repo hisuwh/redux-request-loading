@@ -48,6 +48,18 @@ export function loadComments() {
 }
 ```
 
+Or use the `loadingHelper` method:
+
+```js
+import { loadingHelper } from "redux-request-loading";
+
+export function loadComments() {
+    return (dispatch) => loadingHelper(dispatch, "COMMENTS", fetch("/comments"))
+        .then(comments => dispatch(loadCommentsSuccess(comments));
+}
+
+```
+
 ## Checking state of request
 
 Use the `isRequestActive` *selector* to check the state of your request
