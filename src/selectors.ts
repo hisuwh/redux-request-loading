@@ -13,6 +13,7 @@ const requestsActive = (requests: string[], queryRequests: string[]) => queryReq
 
 export const isRequestActive = (state: LoadingState, request?: string) => requestActive(activeRequests(state), request);
 export const areRequestsActive = (state: LoadingState, requests: string[] = []) => requestsActive(activeRequests(state), requests);
+export const getProgress = (state: LoadingState) => state.loading.progress;
 
 export const makeIsRequestActive = (request?: string) => createSelector(
     activeRequests,
