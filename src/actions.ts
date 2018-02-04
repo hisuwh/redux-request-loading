@@ -1,4 +1,4 @@
-import * as actions from "./actionsTypes";
+import * as actions from "./actionTypes";
 
 export type LoadingAction =
     ({ type: actions.LOADING, request: string })

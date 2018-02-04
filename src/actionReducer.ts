@@ -1,4 +1,4 @@
-import * as actions from "./actionsTypes";
+import * as actions from "./actionTypes";
 import { Loading } from "./model";
 import { LoadingAction } from "./actions";
 import { requestStart } from "./requestStart";
