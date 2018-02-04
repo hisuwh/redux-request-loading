@@ -1,3 +1,5 @@
+import { Dispatch } from "redux";
+
 import * as actions from "./actionTypes";
 
 export type LoadingAction =
@@ -8,3 +10,17 @@ export type LoadingAction =
 export const loading = (request: string): LoadingAction => ({ type: actions.LOADING, request });
 export const loadError = (request: string): LoadingAction => ({ type: actions.LOAD_ERROR, request });
 export const loadSuccess = (request: string): LoadingAction => ({ type: actions.LOAD_SUCCESS, request });
+
+export const loadingHelper = <T>(dispatch: Dispatch<{}>, request: string, promise: Promise<T>) => {
+    dispatch(loading(request));
+
+    return promise
+        .then(result => {
+            dispatch(loadSuccess(request));
+            return result;
+        })
+        .catch(error => {
+            dispatch(loadError(request));
+            throw error;
+        });
+};
