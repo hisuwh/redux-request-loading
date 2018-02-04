@@ -1,6 +1,6 @@
 # redux-request-loading
 
-**redux-request-loading** provides actions and reducers to trakc the loading state of your application.  What makes it different is that it tracks each individual request not just the overall state.  This allows you to monitor the state of specific requests you care about in your components and display the loading state accordingly.  I.e. your post has loaded but the comments are still loading.
+**redux-request-loading** provides actions and reducers to track the loading state of your application.  What makes it different is that it tracks each individual request not just the overall state.  This allows you to monitor the state of specific requests you care about in your components and display the loading state accordingly.  I.e. your post has loaded but the comments are still loading.
 
 ## Installation
 
@@ -8,7 +8,7 @@
 
 > Note: the package includes typings for Typescript
 
-## Setup 
+## Setup
 
 Add the loading reducer to your store:
 
@@ -133,7 +133,7 @@ import { makeIsRequestActive } from "redux-request-loading";
 // component definition
 
 const makeMapStateToProps = () => {
-  
+
   const isRequestActive = makeIsRequestActive("COMMENTS");
 
   return (state) => ({
@@ -153,7 +153,7 @@ import { makeAreRequestsActive } from "redux-request-loading";
 // component definition
 
 const makeMapStateToProps = () => {
-  
+
   const areRequestsActive = makeAreRequestsActive(["POSTS", "COMMENTS"]);
 
   return (state) => ({
