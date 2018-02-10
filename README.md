@@ -50,17 +50,19 @@ export function loadComments() {
 }
 ```
 
-Or use the `loadingHelper` method:
+Or use the `loadAndTrack` method:
 
 ```js
-import { loadingHelper } from "redux-request-loading";
+import { loadAndTrack } from "redux-request-loading";
 
 export function loadComments() {
-    return (dispatch) => loadingHelper(dispatch, "COMMENTS", fetch("/comments"))
+    return (dispatch) => loadAndTrack(dispatch, "COMMENTS", fetch("/comments"))
         .then(comments => dispatch(loadCommentsSuccess(comments));
 }
 
 ```
+
+> `loadAndTrack` replaces `loadingHelper` which is now deprecated and will be removed in version 2.0.0
 
 ## Checking state of request
 
