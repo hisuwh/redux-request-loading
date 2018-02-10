@@ -1,6 +1,7 @@
 # redux-request-loading
 
 [![Build Status](https://travis-ci.org/hisuwh/redux-request-loading.svg?branch=master)](https://travis-ci.org/hisuwh/redux-request-loading)
+[![npm version](https://badge.fury.io/js/redux-request-loading.svg)](https://badge.fury.io/js/redux-request-loading)
 
 **redux-request-loading** provides actions and reducers to track the loading state of your application.  What makes it different is that it tracks each individual request not just the overall state.  This allows you to monitor the state of specific requests you care about in your components and display the loading state accordingly.  I.e. your post has loaded but the comments are still loading.
 
