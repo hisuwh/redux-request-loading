@@ -146,7 +146,7 @@ export class ActionReducerTests {
             activeRequests: ["TEST_REQUEST"],
             progress: 50,
             total: 2
-        })
+        });
     }
 
     @Test("should update progress when new request starts")
