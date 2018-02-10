@@ -38,7 +38,7 @@ export class AsyncActionTests {
         const data = { test: 1 };
         const promise = Promise.resolve(data);
 
-        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadingHelper(dispatch, "TEST", promise);
+        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadAndTrack(dispatch, "TEST", promise);
 
         const result = await store.dispatch(testAction());
 
@@ -58,7 +58,7 @@ export class AsyncActionTests {
         const error = "TEST_ERROR";
         const promise = Promise.reject(error);
 
-        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadingHelper(dispatch, "TEST", promise);
+        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadAndTrack(dispatch, "TEST", promise);
 
         try {
             await store.dispatch(testAction());

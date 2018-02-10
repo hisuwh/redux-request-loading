@@ -11,7 +11,7 @@ export const loading = (request: string): LoadingAction => ({ type: actions.LOAD
 export const loadError = (request: string): LoadingAction => ({ type: actions.LOAD_ERROR, request });
 export const loadSuccess = (request: string): LoadingAction => ({ type: actions.LOAD_SUCCESS, request });
 
-export const loadingHelper = <T>(dispatch: Dispatch<{}>, request: string, promise: Promise<T>) => {
+export const loadAndTrack = <T>(dispatch: Dispatch<{}>, request: string, promise: Promise<T>) => {
     dispatch(loading(request));
 
     return promise
@@ -24,3 +24,8 @@ export const loadingHelper = <T>(dispatch: Dispatch<{}>, request: string, promis
             throw error;
         });
 };
+
+/**
+ * @deprecated Will be removed in version 2.0.0. Use loadAndTrack
+ */
+export const loadingHelper = loadAndTrack;
