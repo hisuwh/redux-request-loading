@@ -12,3 +12,4 @@ deploy:
   on:
     tags: true
     repo: hisuwh/redux-request-loading
+  skip_cleanup: true
