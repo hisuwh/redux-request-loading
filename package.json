@@ -19,7 +19,7 @@
     "license": "ISC",
     "dependencies": {
         "redux": "^3.7.2",
-        "reselect": "^3.0.1"
+        "reselect": "^4.0.0"
     },
     "devDependencies": {
         "alsatian": "2.1.0",
