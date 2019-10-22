@@ -24,8 +24,3 @@ export const loadAndTrack = <T>(dispatch: Dispatch<{}>, request: string, promise
             throw error;
         });
 };
-
-/**
- * @deprecated Will be removed in version 2.0.0. Use loadAndTrack
- */
-export const loadingHelper = loadAndTrack;
