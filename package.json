@@ -22,7 +22,7 @@
         "reselect": "^4.0.0"
     },
     "devDependencies": {
-        "alsatian": "3.1.0",
+        "alsatian": "3.2.1",
         "redux-thunk": "^2.2.0",
         "redux-mock-store": "1.5.3",
         "tslint": "^6.1.3",
