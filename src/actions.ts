@@ -1,4 +1,4 @@
-import { Dispatch } from "redux";
+import { Dispatch, Action } from "redux";
 
 import * as actions from "./actionTypes";
 
@@ -11,7 +11,7 @@ export const loading = (request: string): LoadingAction => ({ type: actions.LOAD
 export const loadError = (request: string): LoadingAction => ({ type: actions.LOAD_ERROR, request });
 export const loadSuccess = (request: string): LoadingAction => ({ type: actions.LOAD_SUCCESS, request });
 
-export const loadAndTrack = <T>(dispatch: Dispatch<{}>, request: string, promise: Promise<T>) => {
+export const loadAndTrack = <T>(dispatch: Dispatch<Action<any>>, request: string, promise: Promise<T>) => {
     dispatch(loading(request));
 
     return promise

@@ -1,4 +1,4 @@
-import { AsyncTest, Expect, Test, TestCase, TestFixture, SpyOn, FocusTest } from "alsatian";
+import { Expect, Test, TestFixture } from "alsatian";
 import * as actions from "./actions";
 import { loading, defaultState } from "./actionReducer";
 

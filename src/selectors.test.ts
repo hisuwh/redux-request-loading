@@ -1,4 +1,4 @@
-import { AsyncTest, Expect, Test, TestCase, TestFixture, SpyOn } from "alsatian";
+import { Expect, Test, TestFixture } from "alsatian";
 
 import {
     areRequestsActive,

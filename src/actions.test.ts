@@ -1,12 +1,12 @@
 // tslint:disable max-classes-per-file
-import { Dispatch } from "redux";
+import { Dispatch, Action } from "redux";
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
 import * as actions from "./actions";
 import * as types from "./actionTypes";
 
-import { AsyncTest, Expect, Test, TestCase, TestFixture, SpyOn } from "alsatian";
+import { Expect, Test, TestCase, TestFixture } from "alsatian";
 
 @TestFixture("Actions")
 export class ActionsTests {
@@ -30,7 +30,7 @@ export class AsyncActionTests {
         this.mockStore = configureMockStore(middlewares);
     }
 
-    @AsyncTest("should dispatch loading and success for resolved promise")
+    @Test("should dispatch loading and success for resolved promise")
     public async shouldDispatchLoadingAndSuccess() {
 
         const store = this.mockStore({});
@@ -38,7 +38,7 @@ export class AsyncActionTests {
         const data = { test: 1 };
         const promise = Promise.resolve(data);
 
-        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadAndTrack(dispatch, "TEST", promise);
+        const testAction = () => (dispatch: Dispatch<Action<any>>) => actions.loadAndTrack(dispatch, "TEST", promise);
 
         const result = await store.dispatch(testAction());
 
@@ -50,7 +50,7 @@ export class AsyncActionTests {
         Expect(result).toBe(data);
     }
 
-    @AsyncTest("should dispatch loading and error for rejected promise")
+    @Test("should dispatch loading and error for rejected promise")
     public async shouldDispatchLoadingAndError() {
 
         const store = this.mockStore({});
@@ -58,7 +58,7 @@ export class AsyncActionTests {
         const error = "TEST_ERROR";
         const promise = Promise.reject(error);
 
-        const testAction = () => (dispatch: Dispatch<{}>) => actions.loadAndTrack(dispatch, "TEST", promise);
+        const testAction = () => (dispatch: Dispatch<Action<any>>) => actions.loadAndTrack(dispatch, "TEST", promise);
 
         try {
             await store.dispatch(testAction());
